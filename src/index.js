@@ -1,28 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import SecondPages from './pages/secondPages';
 
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
-const router = createBrowserRouter([
+
+const router = createHashRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
-    path: "secondPages",
-    element: <SecondPages/>,
+    path: "/secondPages",
+    element: <SecondPages />,
   },
 ]);
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <RouterProvider router={router}>
+    <App />
+  </RouterProvider>
 );
-
-
